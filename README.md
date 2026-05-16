@@ -23,7 +23,6 @@ A modern, responsive Task Management Dashboard built with **React** and **Contex
 | Layer | Technology |
 |---|---|
 | UI Framework | React 18 |
-| Component Library |
 | State Management | Context API + useReducer |
 | Icons | Lucide React |
 | Persistence | localStorage via custom hook |
