@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+# ⚡ TaskFlow — Task Management Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive Task Management Dashboard built with **React** and **Context API**. Supports adding, editing, deleting, filtering, and sorting tasks — with localStorage persistence across sessions.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📸 Features
 
-### `npm start`
+- **Add / Edit / Delete** tasks with a modal form
+- **Form validation** — title and due date are mandatory
+- **Filter** tasks by status — All, Pending, In Progress, Completed
+- **Sort** tasks by due date — ascending or descending
+- **Summary bar** — live count of tasks per status
+- **Overdue detection** — highlights tasks past their due date
+- **Client-side routing** — navigate between All Tasks and Completed views
+- **LocalStorage persistence** — tasks survive page refresh
+- **Responsive grid layout** — works on mobile and desktop
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Tech Stack
 
-### `npm test`
+| Layer | Technology |
+|---|---|
+| UI Framework | React 18 |
+| Component Library |
+| State Management | Context API + useReducer |
+| Icons | Lucide React |
+| Persistence | localStorage via custom hook |
+| Styling | theme system |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 📁 Project Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+src/
+├── constants/
+│   └── index.js              # STATUS_CONFIG, FILTERS, STATUSES, SUMMARY_META
+│
+├── utils/
+│   ├── validate.js           # Form validation logic
+│   └── taskHelpers.js        # filterTasks, sortByDueDate, getSummary, isOverdue, formatDate
+│
+├── hooks/
+│   └── useLocalStorage.js    # Custom hook — syncs state to localStorage
+│
+├── context/
+│   └── TaskContext.jsx       # Reducer, Provider, useTask hook
+│
+├── styles/
+│   └── styles.js             # Shared style objects
+│
+├── components/
+│   ├── navbar.jsx            # Top navigation + view switching
+│   ├── summaryBar.jsx        # Status count cards
+│   ├── toolbar.jsx           # Filter buttons + sort toggle + Add button
+│   ├── taskCard.jsx          # Individual task card (MUI Card)
+│   ├── taskForm.jsx          # Add / Edit form with validation
+│   ├── modal.jsx             # Reusable modal wrapper
+│   └── emptyState.jsx        # Empty list placeholder
+|   └── BaseCard.jsx          # Reusable card wrapper
+|   └── dashboard.jsx         # Main application container
+│
+└── App.jsx                   # Root — mounts TaskProvider
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🚀 Getting Started
 
-### `npm run eject`
+### Prerequisites
+- Node.js 16+
+- npm or yarn
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+# 1. Create a new React app
+npx create-react-app task-dashboard
+cd task-dashboard
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# 2. Install dependencies
+npm install @mui/material @emotion/react @emotion/styled lucide-react
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# 3. Replace src/ with the project files
+# (copy all files from the downloaded zip into src/)
 
-## Learn More
+# 4. Start the dev server
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+App runs at `http://localhost:3000`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 📦 Dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```json
+{
+  "react": "^18.0.0",
+  "@mui/material": "^5.0.0",
+  "@emotion/react": "^11.0.0",
+  "@emotion/styled": "^11.0.0",
+  "lucide-react": "^0.383.0"
+}
+```
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 👩‍💻 Author
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Ria Mehra**
+Senior Frontend Engineer II | ConnectWise
+[linkedin.com/in/mehra-ria](https://linkedin.com/in/mehra-ria) · riamehra2924@gmail.com
